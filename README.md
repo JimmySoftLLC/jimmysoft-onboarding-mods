@@ -1,2 +1,2 @@
 # jimmysoft-onboarding-mods
-This plugin is for resending licenses, generate renewal license, and look at user data and orders.
+This plugin is for resending licenses, generating renewal licenses, and looking at user data and orders.
