@@ -1,10 +1,10 @@
 <?php
 
 	/**
-	 * Plugin Name: JimmySoft User Variables
+	 * Plugin Name: JimmySoft user variables
 	 * Plugin URI: https://embroiderywaresoftware.com
 	 * Description: This plugin if for resending licenses, generate renewal license, and look at user data and orders.
-	 * Version: 1.0.0
+	 * Version: 2.0.0
 	 * Author: Jim Bailey
 	 * Author URI: https://jimmysoftllc.com
 	 * License: GPL2
@@ -325,7 +325,12 @@
 							</div>
 							<div class="item-2">
 								<p>
-									<?php submit_button('Create Order ID License','primary','create_order_id_license');?>
+									<?php submit_button('Create Order ID License Trial','primary','create_order_id_license_trial');?>
+								</p>
+							</div>
+							<div class="item-2">
+								<p>
+									<?php submit_button('Create Order ID License Purchased','primary','create_order_id_license_purchased');?>
 								</p>
 							</div>
 							<div class="item-3">
@@ -373,8 +378,12 @@
 			create_renewal_license();
 		}
 		
-		if (isset($_POST['create_order_id_license'])) {	
-			create_order_id_license();
+		if (isset($_POST['create_order_id_license_trial'])) {	
+			create_order_id_license_trial();
+		}
+		
+		if (isset($_POST['create_order_id_license_purchased'])) {	
+			create_order_id_license_purchased();
 		}
 		
 		if (isset($_POST['resend_existing_license'])) {	
@@ -535,8 +544,12 @@
 		<?php	
 	}
 
-	function create_order_id_license(){
-		Sendout_license_email(get_option('jimmysoft_order_id'));			
+	function create_order_id_license_trial(){
+		Sendout_license_email_trial(get_option('jimmysoft_order_id'));			
+	}
+	
+	function create_order_id_license_purchased(){
+		Sendout_license_email_purchased(get_option('jimmysoft_order_id'));			
 	}
 	
 	function create_renewal_license(){
